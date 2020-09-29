@@ -1,0 +1,31 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: cloud-employee-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://139.155.49.169:3306/Vuehr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: deng@shu
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 12000
+        readTimeout: 12000
+  hystrix:
+    enabled: true
+logging:
+  level:
+    com.cloud.study.employee.dao: debug
+
+
